@@ -182,11 +182,46 @@ body {
     border-radius: 4px;;
 }
 
-.search-btn ion-icon { --ionicon-stroke-width: 40px; }
+.search-btn ion-icon { --ionicon-stroke-width: 80px; }
 
 .nav-toggle-btn {
-    color: var(--white);
-    font-size: 30px;
-    border: 1px solid var(--white);
-    padding: 4px;
+  color: var(--white);
+  font-size: 30px;
+  border: 1px solid var(--white);
+  padding: 4px;
 }
+
+.nav-toggle-btn.active .menu,
+.nav-toggle-btn .close { display: none; }
+
+.nav-toggle-btn .menu,
+.nav-toggle-btn.active .close { display: block; }
+
+.navbar {
+  background-color: var(--eerie-black-1);
+  color: var(--white);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  max-width: 350px;
+  visibility: hidden;
+  max-height: 0;
+  transition: 0.25s var(--cubic-out);
+  overflow: hidden;
+}
+
+.navbar.active {
+  visibility: visible;
+  max-height: 275px;
+  transition-duration: 0.5s;
+}
+
+.navbar-item:not(:last-child) { border-block-end: 1px solid var(--white_15); }
+
+.navbar-link {
+  padding: 10px 25px;
+  transition: var(--transition);
+}
+
+.navbar-link:is(:hover, :focus) { background-color: var(--white_10); }
